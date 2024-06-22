@@ -1,4 +1,4 @@
-<app-header-foundation [currentUser]="currentUser" [title]="getBuildingName()"></app-header-foundation>
+<app-header-foundation [currentUser]="currentUser" [title]="building.address"></app-header-foundation>
 <h1 class="centered-title">Каса</h1>
 
 <div class="panels">
@@ -10,11 +10,11 @@
                 </mat-expansion-panel-header>
                 <div class="info-row">
                     <mat-icon>person</mat-icon>
-                    <span>Касиер: {{selection.safe.cashierName}}</span>
+                    <span>Касиер: {{building.safe.cashierName}}</span>
                 </div>
                 <div class="info-row">
                     <mat-icon>book</mat-icon>
-                    <span>Месечни такси: {{selection.safe.monthlyTax * selection.numberOfApartments}} лв.</span>
+                    <span>Месечни такси: {{monthlyTax}} лв.</span>
                 </div>
             </mat-expansion-panel>
             <mat-expansion-panel expanded="true">
@@ -33,9 +33,9 @@
                 </mat-expansion-panel-header>
                 <div id="debit" class="debit-content">
                     <img src="./assets/bank.png" alt="bank.png" width="100" height="100">
-                    <h2>{{selection.safe.debit}} лв.</h2>
+                    <h2>{{building.safe.debit}} лв.</h2>
                 </div>
-                <mat-card-subtitle class="centered-title">IBAN: {{selection.safe.iban}}</mat-card-subtitle>
+                <mat-card-subtitle class="centered-title">IBAN: {{building.safe.iban}}</mat-card-subtitle>
             </mat-expansion-panel>
             <mat-expansion-panel expanded="true">
                 <mat-expansion-panel-header>
@@ -51,8 +51,8 @@
                 <mat-expansion-panel-header>
                     <mat-panel-title>Трансакции</mat-panel-title>
                 </mat-expansion-panel-header>
-                <mat-list (click)="openTransactions(selection.safe.transactions)">
-                    <mat-list-item *ngFor="let transaction of selection.safe.transactions">
+                <mat-list (click)="openTransactions(building.safe.transactions)">
+                    <mat-list-item *ngFor="let transaction of building.safe.transactions">
                         <div class="transaction-row"
                              [ngClass]="{'positive': transaction.amount > 0, 'negative': transaction.amount < 0}">
                             <mat-icon>{{ transaction.amount > 0 ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
