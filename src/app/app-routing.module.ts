@@ -7,12 +7,17 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { CashierComponent } from './cashier/cashier.component';
 import { TransactionsComponent } from './cashier/transactions/transactions.component';
+import {ActivityComponent} from "./activity/activity.component";
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   {
     path: 'buildings',
     component: BuildingSelectionComponent,
+  },
+  {
+    path: 'activity',
+    component: ActivityComponent,
   },
   {
     path: 'buildings/:id',

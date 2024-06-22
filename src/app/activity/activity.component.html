@@ -1,0 +1,73 @@
+<mat-card *ngIf="activity">
+  <mat-card-header>
+    <mat-card-title>{{ activity.name }}</mat-card-title>
+    <mat-card-subtitle>Отговорник: {{ activity.responsible }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Статус: {{ getActivityStatusName(activity.status) }}</p>
+    <p>Тип: {{ getActivityTypeName(activity.type) }}</p>
+    <p>Начална дата: {{ activity.startDate | date }}</p>
+
+    <!-- Stepper за стъпките -->
+    <mat-horizontal-stepper linear [selectedIndex]="currentStepIndex" (selectionChange)="onStepChange($event)">
+      <mat-step *ngFor="let step of activity.steps; let i = index" [label]="getStepName(step.stepNumber)">
+        <ng-template matStepLabel>{{ getStepName(step.stepNumber) }}</ng-template>
+        <div class="step-content" *ngIf="step.stepNumber === stepNames.POLL">
+          <h3>{{ getStepName(stepNames.POLL) }}</h3>
+          <p>Описание на дейността</p>
+          <mat-radio-group>
+            <mat-radio-button value="agree">Съгласен</mat-radio-button>
+            <mat-radio-button value="disagree">Несъгласен</mat-radio-button>
+          </mat-radio-group>
+          <button mat-raised-button color="primary" (click)="onVote()">Гласувай</button>
+        </div>
+        <div class="step-content" *ngIf="step.stepNumber === stepNames.OFFER_COLLECTION">
+          <h3>{{ getStepName(stepNames.OFFER_COLLECTION) }}</h3>
+          <p>Списък с оферти:</p>
+          <!-- Списък с оферти -->
+          <button mat-raised-button color="primary" (click)="onAddOffer()">Добави оферта</button>
+        </div>
+        <div class="step-content" *ngIf="step.stepNumber === stepNames.OFFER_SELECTION">
+          <h3>{{ getStepName(stepNames.OFFER_SELECTION) }}</h3>
+          <p>Избор на оферта:</p>
+          <mat-radio-group>
+            <!-- Примерни оферти -->
+            <mat-radio-button value="offer1">Оферта 1</mat-radio-button>
+            <mat-radio-button value="offer2">Оферта 2</mat-radio-button>
+          </mat-radio-group>
+          <button mat-raised-button color="primary" (click)="onVote()">Гласувай</button>
+        </div>
+
+        <div class="step-content payment-form" *ngIf="step.stepNumber === stepNames.FUNDRAISING">
+          <h3>{{ getStepName(stepNames.FUNDRAISING) }}</h3>
+          <p>Форма за плащане с дебитна карта:</p>
+
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="Въведете име на карта">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="Въведете номер на карта" type="number">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="MM/YYYY" type="text">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="Въведете CVC код" type="number">
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" (click)="onPay()">Потвърди плащането</button>
+        </div>
+
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-card-content>
+
+  <!-- Коментарна секция -->
+  <mat-card-actions>
+    <textarea matInput placeholder="Добави коментар"></textarea>
+    <button mat-raised-button color="accent">Изпрати</button>
+  </mat-card-actions>
+</mat-card>

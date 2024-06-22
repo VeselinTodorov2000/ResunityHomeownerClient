@@ -17,6 +17,7 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { CreateNotificationComponent } from './notifications/create-notification/create-notification.component';
 import { TransactionsComponent } from './cashier/transactions/transactions.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ActivityComponent } from './activity/activity.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     ActivitiesComponent,
     CreateNotificationComponent,
     TransactionsComponent,
+    ActivityComponent,
   ],
   imports: [
     BrowserModule,
