@@ -1,0 +1,15 @@
+<app-header-foundation [currentUser]="selection" [title]="'Building selection'"></app-header-foundation>
+<div class="building-selection-panel">
+    <mat-grid-list [cols]="3" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let building of selection?.buildings">
+            <mat-card (click)="selectBuilding(building)" class="building-field">
+                <img mat-card-image src="../../assets/building.png" alt="building.png" class="building-image">
+                <mat-card-content>
+                    <p>Бл. {{building.buildingNumber}} Вх. {{building.buildingSubnumber}}</p>
+                    <p>{{building.district}}, {{building.city}}</p>
+                    <p>{{building.safe.debit}} лв.</p>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

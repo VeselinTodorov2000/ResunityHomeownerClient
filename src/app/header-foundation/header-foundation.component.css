@@ -1,0 +1,39 @@
+.toolbar-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.app-logo {
+    height: 100px;
+    margin-right: 16px;
+    margin-top: 30px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.search-bar {
+    width: 300px;
+    margin-right: 16px;
+}
+
+.icon {
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.profile-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 16px;
+    cursor: pointer;
+    border: 1px black solid;
+}
+
+.homeowner-info {
+    font-size: 16px;
+    font-weight: 500;
+}

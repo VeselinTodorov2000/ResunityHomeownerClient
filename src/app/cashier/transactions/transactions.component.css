@@ -1,0 +1,53 @@
+/* Styling for the transactions table container */
+.transactions-container {
+    width: 100%;
+    height: calc(100vh - 120px); /* Adjust height as needed based on other content */
+    overflow: auto;
+}
+
+/* Styling for the transactions table */
+.mat-table {
+    width: 100%;
+    height: 100%;
+    display: block; /* Ensures table fills container */
+}
+
+/* Styling for table header cells */
+.mat-header-cell {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Styling for table rows and cells */
+.mat-cell,
+.mat-header-cell {
+    padding: 10px;
+}
+
+/* Styling for table rows */
+.mat-row {
+    background-color: #f0f0f0;
+}
+
+/* Alternate row background color */
+.mat-row:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Hover effect on rows */
+.mat-row:hover {
+    background-color: #e0e0e0;
+}
+
+/* Styling for filter and export section */
+.filter-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Button styles */
+.mat-raised-button {
+    margin-left: 10px;
+}

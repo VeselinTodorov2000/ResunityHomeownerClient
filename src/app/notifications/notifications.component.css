@@ -1,0 +1,66 @@
+/* Import Material theme (replace with your preferred theme) */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Cards and Rows */
+mat-card {
+    width: 98%;
+    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.1); /* Add subtle card elevation */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 16px; /* Add spacing between cards */
+    margin-top: 3%; /* Add 3% margin-top */
+    padding: 16px; /* Add some padding inside cards */
+}
+
+.mat-list-item {
+    margin: 0; /* Remove margin for better card layout */
+    display: flex; /* Allow flexbox for equal side space */
+    flex-direction: row;
+    align-items: center; /* Vertically align content within rows */
+    border-radius: 4px; /* Rounded corners for rows */
+    cursor: pointer; /* Add hover effect for clickable rows */
+}
+
+.mat-list-item:hover {
+    background-color: #f5f5f5; /* Slight background change on hover */
+}
+
+/* Remove notification dot styles */
+.notification-dot {
+    display: none; /* Hide notification dots */
+}
+
+.mat-list-item p {
+    flex: 1; /* Allow text to fill available space */
+    margin-right: 16px; /* Adjust spacing between text and buttons */
+}
+
+/* Button styles */
+.button-bar-panel {
+    display: flex;
+    flex-direction: row-reverse; /* Align button to the right */
+    justify-content: space-between;
+    margin: 16px 0; /* Add spacing above and below buttons */
+}
+
+.button-bar-panel > button {
+    background-color: #1C3099;
+    color: white;
+    font-size: 16px; /* Increase font size for buttons */
+    padding: 8px 16px; /* Adjust button padding */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; /* Add smooth hover effect */
+}
+
+.button-bar-panel > button:hover {
+    background-color: #19277C; /* Darken button color on hover */
+}
+
+/* Move buttons and add labels */
+.mat-list-item button {
+    margin-left: auto; /* Move button to the end of the row */
+}
+
+.mat-list-item span {
+    margin-right: 8px; /* Add spacing between label and button */
+}

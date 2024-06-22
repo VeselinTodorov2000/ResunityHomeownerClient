@@ -1,0 +1,67 @@
+<app-header-foundation [currentUser]="currentUser" [title]="'Дейности'"></app-header-foundation>
+
+<div class="activity-container">
+
+    <mat-expansion-panel *ngIf="getActivitiesByType(ActivityType.ACTIVE).length > 0">
+        <mat-expansion-panel-header>
+            <mat-panel-title>Активни дейности</mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-card class="activity-card">
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item *ngFor="let activity of getActivitiesByType(ActivityType.ACTIVE)">
+                        <div class="activity-details">
+                            <p>{{activity.name}}</p>
+                            <p>{{activity.startDate}}</p>
+                        </div>
+                        <div class="activity-responsible">
+                            <p>Отговорник</p>
+                            <p>{{activity.responsible}}</p>
+                        </div>
+                        <div class="activity-step">
+                            <p>Стъпка {{findActiveStep(activity.steps)?.stepNumber}}</p>
+                            <p>{{findActiveStep(activity.steps)?.stepNumber!.toLocaleString()}}</p>
+                        </div>
+                        <div class="activity-buttons">  <button mat-icon-button (click)="openActivity(activity)">
+                            <mat-icon>launch</mat-icon>
+                            Отвори
+                        </button>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="getActivitiesByType(ActivityType.FINISHED).length > 0">
+        <mat-expansion-panel-header>
+            <mat-panel-title>Завършени дейности</mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-card class="activity-card">
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item *ngFor="let activity of getActivitiesByType(ActivityType.FINISHED)">
+                        <div class="activity-details">
+                            <p>{{activity.name}}</p>
+                            <p>{{activity.startDate}}</p>
+                        </div>
+                        <div class="activity-responsible">
+                            <p>Отговорник</p>
+                            <p>{{activity.responsible}}</p>
+                        </div>
+                        <div class="activity-step">
+                            <p>Стъпка {{findActiveStep(activity.steps)?.stepNumber}}</p>
+                            <p>{{findActiveStep(activity.steps)?.stepNumber!.toLocaleString()}}</p>
+                        </div>
+                        <div class="activity-buttons">  <button mat-icon-button (click)="openActivity(activity)">
+                            <mat-icon>archive</mat-icon>
+                            Архивирай
+                        </button>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </mat-expansion-panel>
+
+</div>

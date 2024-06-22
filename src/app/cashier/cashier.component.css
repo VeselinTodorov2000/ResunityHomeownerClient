@@ -1,0 +1,79 @@
+.centered-title {
+    display: flex;
+    justify-content: center;
+}
+
+.panels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.left-panel, .center-panel, .right-panel {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.mat-card, .mat-expansion-panel {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.mat-panel-title {
+    font-size: 1.5rem; /* Increase font size */
+    font-weight: bold; /* Make the title bold */
+    text-align: center; /* Center align text */
+}
+
+.debit-panel {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#debit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.debit-content h2 {
+    margin-left: 20px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info-row mat-icon {
+    margin-right: 10px;
+}
+
+.transaction-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.transaction-row mat-icon {
+    margin-right: 10px;
+}
+
+.transaction-row.positive {
+    color: green;
+}
+
+.transaction-row.negative {
+    color: red;
+}
+
+.mat-divider {
+    margin: 10px 0;
+}

@@ -1,0 +1,97 @@
+/* General Styles */
+
+body {
+    font-family: sans-serif; /* Set a default font family */
+    margin: 0;
+    padding: 0;
+}
+
+/* Activity Container Styles */
+
+.activity-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem; /* Add some padding for better spacing */
+}
+
+/* Expansion Panel Styles */
+
+.mat-expansion-panel {
+    background-color: #f5f5f5; /* Light gray background for panels */
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Hide content by default for expandable behavior */
+}
+
+.mat-expansion-panel.mat-expanded {
+    overflow: visible; /* Show content when panel is expanded */
+}
+
+.mat-expansion-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #e0e0e0; /* Add a subtle border to separate headers */
+}
+
+.mat-panel-title {
+    font-weight: bold;
+    color: #3f51b5; /* Adjust title color based on preference */
+}
+
+/* Activity Card Styles */
+
+.activity-card {
+    width: 100%;
+    border-radius: 0; /* Remove card border radius as it's inside the panel */
+    box-shadow: none; /* Remove card shadow as it's inside the panel */
+    background-color: #fff; /* Set white background for cards */
+    padding: 1rem; /* Add some padding for card content */
+}
+
+/* Activity Details Styles */
+
+.activity-details,
+.activity-responsible,
+.activity-step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.activity-details p,
+.activity-responsible p,
+.activity-step p {
+    margin: 0;
+}
+
+.activity-details p:first-child,
+.activity-responsible p:first-child,
+.activity-step p:first-child {
+    font-weight: bold;
+}
+
+/* Button Styles */
+
+button.mat-icon-button {
+    background-color: transparent;
+    color: #3f51b5; /* Adjust button color based on preference */
+    display: flex;
+    align-items: center;
+    padding: 0.5rem; /* Add some padding for better button styling */
+    margin-left: auto;  /* Move buttons to the left */
+}
+
+button.mat-icon-button mat-icon {
+    margin-right: 5px;
+}
+
+/* New Style: Activity Buttons Container */
+
+.activity-buttons {
+    text-align: right;  /* Align buttons to the right within the list item */
+}

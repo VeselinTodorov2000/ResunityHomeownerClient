@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+    <div class="toolbar-content">
+        <img src="assets/logo.png" class="app-logo" alt="Logo" (click)="redirectToHome()">
+        <span class="spacer"></span>
+        <h1 class="spacer" id="title">{{title}}</h1>
+        <mat-form-field appearance="outline" class="search-bar">
+            <input matInput type="search" placeholder="Search">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <mat-icon class="icon">notifications</mat-icon>
+        <img id="profile-img" src="{{currentUser.profileIcon}}" alt="Profile Image" class="profile-img">
+        <span class="homeowner-info">{{currentUser.homeownerName}} ({{currentUser.howeownerCompany}})</span>
+    </div>
+</mat-toolbar>
+

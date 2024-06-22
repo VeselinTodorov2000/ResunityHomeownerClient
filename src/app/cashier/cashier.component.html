@@ -1,0 +1,68 @@
+<app-header-foundation [currentUser]="currentUser" [title]="getBuildingName()"></app-header-foundation>
+<h1 class="centered-title">Каса</h1>
+
+<div class="panels">
+    <div class="left-panel">
+        <mat-accordion multi> <!-- Use multi attribute to allow multiple panels to be expanded -->
+            <mat-expansion-panel expanded="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Информация</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="info-row">
+                    <mat-icon>person</mat-icon>
+                    <span>Касиер: {{selection.safe.cashierName}}</span>
+                </div>
+                <div class="info-row">
+                    <mat-icon>book</mat-icon>
+                    <span>Месечни такси: {{selection.safe.monthlyTax * selection.numberOfApartments}} лв.</span>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel expanded="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Отчети</mat-panel-title>
+                </mat-expansion-panel-header>
+                <b>Предстояща функционалност</b>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="center-panel">
+        <mat-accordion multi>
+            <mat-expansion-panel expanded="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Наличност</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div id="debit" class="debit-content">
+                    <img src="./assets/bank.png" alt="bank.png" width="100" height="100">
+                    <h2>{{selection.safe.debit}} лв.</h2>
+                </div>
+                <mat-card-subtitle class="centered-title">IBAN: {{selection.safe.iban}}</mat-card-subtitle>
+            </mat-expansion-panel>
+            <mat-expansion-panel expanded="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Длъжници</mat-panel-title>
+                </mat-expansion-panel-header>
+                <b>Предстояща функционалност</b>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="right-panel">
+        <mat-accordion multi>
+            <mat-expansion-panel expanded="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Трансакции</mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list (click)="openTransactions(selection.safe.transactions)">
+                    <mat-list-item *ngFor="let transaction of selection.safe.transactions">
+                        <div class="transaction-row"
+                             [ngClass]="{'positive': transaction.amount > 0, 'negative': transaction.amount < 0}">
+                            <mat-icon>{{ transaction.amount > 0 ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
+                            <span>{{ transaction.receiverIban }}</span>
+                            <span>{{ transaction.amount }} лв.</span>
+                        </div>
+                        <mat-divider></mat-divider>
+                    </mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>
