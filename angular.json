@@ -70,7 +70,10 @@
               "browserTarget": "resunity-homeowner-client:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "./proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -97,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "0fd02c91-2208-4efe-bf59-b2b330ddbb42"
   }
 }
