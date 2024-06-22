@@ -2,12 +2,19 @@
 <div class="building-selection-panel">
     <mat-grid-list [cols]="3" rowHeight="1:1">
         <mat-grid-tile *ngFor="let building of homeowner?.buildings">
-            <mat-card  class="building-field" [routerLink]="['/', 'buildings', building.id]">
+            <mat-card class="building-field" appearance="outlined">
+                <mat-card-header>
+                    <div mat-card-avatar></div>
+                    <mat-card-title><strong>{{building.address}}</strong></mat-card-title>
+                </mat-card-header>
                 <img mat-card-image src="../../assets/building.png" alt="building.png" class="building-image">
                 <mat-card-content>
-                    <p>{{building.address}} </p>
-                    <p>{{building.safe.debit}} лв.</p>
+                        <div>{{building.apartmentsCount}} апартамента</div>
+                        <div>{{building.safe.debit}} лв.</div>
                 </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button [routerLink]="['/', 'buildings', building.id]">VIEW DETAILS</button>
+                </mat-card-actions>
             </mat-card>
         </mat-grid-tile>
     </mat-grid-list>

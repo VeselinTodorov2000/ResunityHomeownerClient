@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     profileIcon: 'assets/profile-icon.jpg',
     buildings: [
       {
-        id: 1,
+        id: '36cd583e-6df4-4047-b46e-c2ba46c0f92c',
         address: 'София, Център, ул. Хан Крум 1',
         apartmentsCount: 32,
         safe: {
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         notifications: [],
       },
       {
-        id: 2,
+        id: '36cd583e-6df4-4047-b46e-c2ba46c0f92c',
         //buildingNumber: '50',
         //buildingSubnumber: 'В',
         //district: 'Малинова Долина',
@@ -129,7 +129,7 @@ export class LoginComponent implements OnInit {
         ],
       },
       {
-        id: 3,
+        id: '36cd583e-6df4-4047-b46e-c2ba46c0f92c',
         // buildingNumber: '38',
         // district: 'Тракия',
         // city: 'Пловдив',
@@ -147,7 +147,7 @@ export class LoginComponent implements OnInit {
         notifications: [],
       },
       {
-        id: 4,
+        id: '36cd583e-6df4-4047-b46e-c2ba46c0f92c',
         address: 'Плевен, Сторгозия 250',
         // buildingNumber: '250',
         // district: 'Сторгозия',
