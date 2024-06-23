@@ -1,42 +1,44 @@
 <app-header-foundation [title]="'Обявления'" [currentUser]="currentUser"></app-header-foundation>
 
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Активни обявления</mat-card-title>
-    </mat-card-header>
-    <hr>
-    <mat-card-content>
-        <mat-list>
-            <mat-list-item *ngFor="let notification of getNotificationsByActiveness(true)">
-                <p>{{notification.description}}</p>
-                <div style="display: flex; flex-grow: 1;"></div>  <span>Изтекла: </span>
-                <button mat-icon-button (click)="expireNotification(notification)">
-                    <mat-icon>access_time</mat-icon>
-                </button>
-            </mat-list-item>
-        </mat-list>
-    </mat-card-content>
-</mat-card>
-
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Изтекли обявления</mat-card-title>
-    </mat-card-header>
-    <hr>
-    <mat-card-content>
-        <mat-list>
-            <mat-list-item *ngFor="let notification of getNotificationsByActiveness(false)">
-                <p>{{notification.description}}</p>
-                <p>{{notification.due | date }}</p>
-                <div style="display: flex; flex-grow: 1;"></div> <span>Поднови: </span>
-                <button mat-icon-button (click)="reopenNotification(notification)">
-                    <mat-icon>autorenew</mat-icon>
-                </button>
-            </mat-list-item>
-        </mat-list>
-    </mat-card-content>
-</mat-card>
-
-<div class="button-bar-panel">
-    <button mat-raised-button (click)="openDialog()">Създай ново обявление</button>
+<div class="wrapper">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Активни обявления</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item *ngFor="let notification of getNotificationsByActiveness(true)">
+                    <p>{{notification.description}}</p>
+                    <div style="display: flex; flex-grow: 1;"></div>  <span>Изтекла: </span>
+                    <button mat-icon-button (click)="expireNotification(notification)">
+                        <mat-icon>access_time</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Изтекли обявления</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item *ngFor="let notification of getNotificationsByActiveness(false)">
+                    <p>{{notification.description}}</p>
+                    <p>{{notification.due | date }}</p>
+                    <div style="display: flex; flex-grow: 1;"></div> <span>Поднови: </span>
+                    <button mat-icon-button (click)="reopenNotification(notification)">
+                        <mat-icon>autorenew</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+    
+    <div class="button-bar-panel">
+        <button mat-raised-button (click)="openDialog()">Създай ново обявление</button>
+    </div>
 </div>

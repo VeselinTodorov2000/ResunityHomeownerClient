@@ -1,4 +1,7 @@
+.wrapper {
+    height: calc(85% - 30px);
 
+}
 /* Cards and Rows */
 mat-card {
     width: 98%;
