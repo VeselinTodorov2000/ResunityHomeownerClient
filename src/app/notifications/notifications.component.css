@@ -31,7 +31,7 @@ mat-card {
 }
 
 .mat-list-item p {
-    flex: 1; /* Allow text to fill available space */
+    flex: 23; /* Allow text to fill available space */
     margin-right: 16px; /* Adjust spacing between text and buttons */
 }
 
