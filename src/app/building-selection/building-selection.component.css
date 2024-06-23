@@ -15,7 +15,8 @@
 
 .building-selection-panel {
     background-color: #f3f4f6;
-    height: calc(100% - 80px);
+    /* height: calc(100% - 80px); */
+    height: calc(90% - 35px);
 }
 
 .building-field:hover {
