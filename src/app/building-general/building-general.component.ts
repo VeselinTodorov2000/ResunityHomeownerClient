@@ -54,43 +54,17 @@ export class BuildingGeneralComponent implements OnInit {
   protected readonly NotificationType = NotificationType;
 
   getNumberOfNotificationsByType(type: NotificationType) {
-    // return this.building
-    //   .notifications!.map((notific) => notific.type)
-    //   .filter((notificationType: NotificationType) => notificationType === type)
-    //   .length;
+    return this.building
+      .notifications!.map((notific) => notific.type)
+      .filter((notificationType: NotificationType) => notificationType === type)
+      .length;
   }
 
   protected readonly ActivityType = ActivityType;
 
   getNumberOfActivitiesByType(type: ActivityType) {
-    // return this.building.activities
-    //   .map((activity: Activity) => activity.type)
-    //   .filter((activityType: ActivityType) => activityType === type).length;
-  }
-
-  openActivitiesForBuilding() {
-    this.router.navigate(['/activities'], {
-      // queryParams: {
-      //   homeowner: JSON.stringify(this.currentUser),
-      // },
-    });
-  }
-
-  openNotificationsForBuilding() {
-    this.router.navigate(['/notifications'], {
-      // queryParams: {
-      //   selection: JSON.stringify(this._selection),
-      //   homeowner: JSON.stringify(this.currentUser),
-      // },
-    });
-  }
-
-  openCashierForBuilding() {
-    this.router.navigate(['/cashier'], {
-      // queryParams: {
-      //   selection: JSON.stringify(this._selection),
-      //   homeowner: JSON.stringify(this.currentUser),
-      // },
-    });
+    return this.building.activities
+      .map((activity: Activity) => activity.type)
+      .filter((activityType: ActivityType) => activityType === type).length;
   }
 }

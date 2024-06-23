@@ -14,6 +14,9 @@ export class BuildingSelectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.homeowner = JSON.parse(sessionStorage.getItem('currentUser') || '');
+    console.log('====================================');
+    console.log(this.homeowner);
+    console.log('====================================');
   }
 
   // selectBuilding(building: Building) {

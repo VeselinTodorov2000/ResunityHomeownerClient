@@ -1,7 +1,7 @@
 <app-header-foundation [currentUser]="currentUser" [title]="building.address"></app-header-foundation>
 <div class="main-screen">
     <div class="top-panel">
-        <mat-card class="activities-panel" (click)="openActivitiesForBuilding()">
+        <mat-card class="activities-panel" [routerLink]="['/', 'buildings', buildingId, 'activities']">
             <mat-card-title>Дейности</mat-card-title>
             <mat-divider></mat-divider>
             <mat-card-content>
@@ -11,7 +11,7 @@
             </mat-card-content>
         </mat-card>
 
-        <mat-card class="notifications-panel" (click)="openNotificationsForBuilding()">
+        <mat-card class="notifications-panel" [routerLink]="['/', 'buildings', buildingId, 'notifications']">
             <mat-card-title>Обявления</mat-card-title>
             <mat-divider></mat-divider>
             <mat-card-content>
