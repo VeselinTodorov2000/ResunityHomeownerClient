@@ -9,6 +9,11 @@
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
+        <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="picker2" formControlName="dueDate" placeholder="Due date" required readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
         <div mat-dialog-actions>
             <button mat-button (click)="onNoClick()">Cancel</button>
             <button mat-button type="submit" [disabled]="myForm.invalid">Submit</button>

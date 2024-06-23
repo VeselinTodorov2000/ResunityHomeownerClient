@@ -15,9 +15,8 @@
             <mat-card-title>Обявления</mat-card-title>
             <mat-divider></mat-divider>
             <mat-card-content>
-                <h3 id="active-notification">{{getNumberOfNotificationsByType(NotificationType.ACTIVE)}} Активни</h3>
-                <h3 id="expired">{{getNumberOfNotificationsByType(NotificationType.EXPIRED)}} Изтекли</h3>
-                <h3 id="archived">{{getNumberOfNotificationsByType(NotificationType.ARCHIVED)}} Архивирани</h3>
+                <h3 id="active-notification">{{getNumberOfNotificationsByType(true)}} Активни</h3>
+                <h3 id="archived">{{getNumberOfNotificationsByType(false)}} Архивирани</h3>
             </mat-card-content>
         </mat-card>
 
