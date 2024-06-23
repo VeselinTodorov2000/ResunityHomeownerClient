@@ -1,5 +1,5 @@
 .centered-title {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
 }
 
@@ -81,4 +81,11 @@
 .mat-card {
     height: calc(100% - 110px);
     background-color: ghostwhite;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }

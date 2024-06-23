@@ -24,10 +24,10 @@
                 <img mat-card-image src="../../assets/building.png" alt="building.png" class="building-image">
                 <mat-card-content>
                         <div>{{building.apartmentsCount}} апартамента</div>
-                        <div>{{building.safe.debit}} лв.</div>
+                        <div>{{building.safe.debit}} лв. в касата</div>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button [routerLink]="['/', 'buildings', building.buildingId]">VIEW DETAILS</button>
+                    <button mat-button [routerLink]="['/', 'buildings', building.buildingId]">Вижте Детайли</button>
                 </mat-card-actions>
             </mat-card>
         </mat-grid-tile>
