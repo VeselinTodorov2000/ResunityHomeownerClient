@@ -1,6 +1,7 @@
 mat-card {
   margin: 20px;
   padding: 20px;
+  height: 85%;
 }
 
 mat-card-header {
@@ -58,6 +59,11 @@ mat-radio-button {
 
 mat-radio-button.mat-radio-checked .mat-radio-inner-circle {
   background-color: #3f51b5;
+}
+
+.add-activity-form {
+  display: flex;
+  flex-direction: column;
 }
 
 .payment-form {
