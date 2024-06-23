@@ -1,5 +1,3 @@
-/* Import Material theme (replace with your preferred theme) */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 /* Cards and Rows */
 mat-card {
