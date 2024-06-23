@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Homeowner } from '../models/homeowner';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header-foundation',
@@ -8,14 +9,21 @@ import { Homeowner } from '../models/homeowner';
   styleUrls: ['./header-foundation.component.css'],
 })
 export class HeaderFoundationComponent {
-  @Input() public currentUser!: Homeowner;
+  @Input() currentUser!: Homeowner;
   @Input() public title!: string;
 
-  constructor(public router: Router) {
-    this.currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '');
+  constructor(public router: Router, private location: Location) {
+    const user = sessionStorage.getItem('currentUser');
+    if (user !== null) {
+      this.currentUser = JSON.parse(user);
+    }
   }
 
   redirectToHome() {
     this.router.navigate(['']);
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

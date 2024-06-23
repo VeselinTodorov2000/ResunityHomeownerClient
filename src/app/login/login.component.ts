@@ -178,7 +178,9 @@ export class LoginComponent implements OnInit {
     private readonly usersService: UsersService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    sessionStorage.clear();
+  }
 
   onLogin() {
     this.usersService

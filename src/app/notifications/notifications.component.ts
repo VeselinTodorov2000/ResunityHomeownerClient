@@ -1,36 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import {NotificationType} from '../models/notification-type';
-import {Notification} from '../models/notification';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Building} from '../models/building';
-import {Homeowner} from '../models/homeowner';
-import {MatDialog} from '@angular/material/dialog';
-import {CreateNotificationComponent} from './create-notification/create-notification.component';
+import { NotificationType } from '../models/notification-type';
+import { Notification } from '../models/notification';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Building } from '../models/building';
+import { Homeowner } from '../models/homeowner';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateNotificationComponent } from './create-notification/create-notification.component';
+import { BuildingsService } from '../services/buildings.service';
+import { take, tap } from 'rxjs';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.css']
+  styleUrls: ['./notifications.component.css'],
 })
 export class NotificationsComponent implements OnInit {
   public currentUser!: Homeowner;
 
-  public selection!: Building;
+  public building!: Building;
+  buildingId = '';
 
-  constructor(private route: ActivatedRoute, private router: Router, public dialog: MatDialog) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    public dialog: MatDialog,
+    private readonly buildingsService: BuildingsService
+  ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      const itemString = params['selection'];
-      this.selection = JSON.parse(itemString);
-      const homeowner = params['homeowner'];
-      this.currentUser = JSON.parse(homeowner);
+    this.route.paramMap.subscribe((params) => {
+      this.buildingId = params.get('id') || '';
     });
+    this.buildingsService
+      .getBuildingDetails(this.buildingId)
+      .pipe(
+        take(1),
+        tap((data) => (this.building = data))
+      )
+      .subscribe();
+
+    this.currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '');
   }
 
   getNotificationsByType(notificationType: NotificationType): Notification[] {
-    return this.selection.notifications.filter((notification : Notification) => notification.type === notificationType);
+    return this.building.notifications.filter(
+      (notification: Notification) => notification.type === notificationType
+    );
   }
 
   protected readonly NotificationType = NotificationType;
@@ -45,19 +60,19 @@ export class NotificationsComponent implements OnInit {
 
   getNotificationCreationDay(notification: Notification) {
     let date = new Date(notification.creationDate);
-    return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
+    return date.getDay() + '.' + date.getMonth() + '.' + date.getFullYear();
   }
 
   openDialog() {
     const dialogRef = this.dialog.open(CreateNotificationComponent, {
       width: '600px',
       height: '400px',
-      data: {}
+      data: {},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.selection.notifications.push(result);
+        this.building.notifications.push(result);
       }
     });
   }

@@ -1,4 +1,4 @@
-<app-header-foundation [currentUser]="homeowner" [title]="'Building selection'"></app-header-foundation>
+<app-header-foundation [title]="'Building selection'" [currentUser]="homeowner"></app-header-foundation>
 <div class="building-selection-panel">
     <mat-grid-list [cols]="3" rowHeight="1:1">
         <mat-grid-tile *ngFor="let building of homeowner?.buildings">
