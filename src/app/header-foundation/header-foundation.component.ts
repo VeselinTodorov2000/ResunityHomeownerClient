@@ -26,4 +26,11 @@ export class HeaderFoundationComponent {
   goBack() {
     this.location.back();
   }
+
+  logout() {
+    if(this.currentUser) {
+      sessionStorage.clear();
+      this.router.navigate(['/login']);
+    }
+  }
 }

@@ -18,6 +18,7 @@ import { CreateNotificationComponent } from './notifications/create-notification
 import { TransactionsComponent } from './cashier/transactions/transactions.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivityComponent } from './activity/activity.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ActivityComponent } from './activity/activity.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent],

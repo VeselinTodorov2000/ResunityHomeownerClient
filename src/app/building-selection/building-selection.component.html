@@ -1,7 +1,21 @@
-<app-header-foundation [title]="'Building selection'" [currentUser]="homeowner"></app-header-foundation>
+<app-header-foundation [title]="'Вашите сгради'" [currentUser]="homeowner"></app-header-foundation>
 <div class="building-selection-panel">
     <mat-grid-list [cols]="3" rowHeight="1:1">
         <mat-grid-tile *ngFor="let building of homeowner?.buildings">
+            <!-- <mat-card class="building-field" appearance="outlined">
+                <mat-card-header>
+                    <div mat-card-avatar></div>
+                    <mat-card-title><strong>{{building.address}}</strong></mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="../../assets/building.png" alt="building.png" class="building-image">
+                <mat-card-content>
+                        <div>{{building.apartmentsCount}} апартамента</div>
+                        <div>{{building.safe.debit}} лв.</div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button [routerLink]="['/', 'buildings', building.buildingId]">VIEW DETAILS</button>
+                </mat-card-actions>
+            </mat-card> -->
             <mat-card class="building-field" appearance="outlined">
                 <mat-card-header>
                     <div mat-card-avatar></div>

@@ -10,7 +10,8 @@ import { TransactionsComponent } from './cashier/transactions/transactions.compo
 import {ActivityComponent} from "./activity/activity.component";
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   {
     path: 'buildings',
     component: BuildingSelectionComponent,
