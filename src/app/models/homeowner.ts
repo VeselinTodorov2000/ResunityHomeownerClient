@@ -1,8 +1,8 @@
-import {Building} from './building';
+import { Building } from './building';
 
 export interface Homeowner {
-    homeownerName: string,
-    howeownerCompany: string,
-    profileIcon: string
-    buildings: Building[]
+  homeOwnerName: string;
+  homeOwnerCompany: string;
+  profileIcon: string;
+  buildings: Building[];
 }

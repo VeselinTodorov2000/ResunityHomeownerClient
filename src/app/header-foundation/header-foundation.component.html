@@ -2,6 +2,9 @@
     <mat-toolbar color="primary">
         <div class="toolbar-content">
             <img src="assets/logo.png" class="app-logo" alt="Logo" (click)="redirectToHome()">
+            <button mat-icon-button class="back-button" (click)="goBack()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
             <span class="spacer"></span>
             <h1 class="spacer" id="title">{{title}}</h1>
             <mat-form-field appearance="outline" class="search-bar">
@@ -9,8 +12,10 @@
                 <mat-icon matSuffix>search</mat-icon>
             </mat-form-field>
             <mat-icon class="icon">notifications</mat-icon>
-            <img id="profile-img" src="{{currentUser.profileIcon}}" alt="Profile Image" class="profile-img">
-            <span class="homeowner-info">{{currentUser.homeownerName}} ({{currentUser.howeownerCompany}})</span>
+            <div *ngIf="currentUser">
+                <img id="profile-img" src="assets/user.png" alt="Profile Image" class="profile-img">
+                <span class="homeowner-info">{{currentUser.homeOwnerName}} ({{currentUser.homeOwnerCompany}})</span>
+            </div>
         </div>
     </mat-toolbar>
 </div>

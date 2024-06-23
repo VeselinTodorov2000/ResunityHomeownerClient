@@ -3,7 +3,7 @@ import { Activity } from './activity';
 import { Notification } from './notification';
 
 export interface Building {
-  id: string;
+  buildingId: string;
   // buildingNumber: string,
   // buildingSubnumber?: string,
   // district: string,
