@@ -53,10 +53,10 @@ export class BuildingGeneralComponent implements OnInit {
 
   protected readonly NotificationType = NotificationType;
 
-  getNumberOfNotificationsByType(type: NotificationType) {
+  getNumberOfNotificationsByType(isActive: boolean) {
     return this.building
-      .notifications!.map((notific) => notific.type)
-      .filter((notificationType: NotificationType) => notificationType === type)
+      .notifications!.map((notific) => notific.isActive)
+      .filter((notificationActiveness: boolean) => notificationActiveness === isActive)
       .length;
   }
 

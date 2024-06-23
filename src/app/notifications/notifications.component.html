@@ -7,8 +7,8 @@
     <hr>
     <mat-card-content>
         <mat-list>
-            <mat-list-item *ngFor="let notification of getNotificationsByType(NotificationType.ACTIVE)">
-                <p>{{notification.name}}</p>
+            <mat-list-item *ngFor="let notification of getNotificationsByActiveness(true)">
+                <p>{{notification.description}}</p>
                 <div style="display: flex; flex-grow: 1;"></div>  <span>Изтекла: </span>
                 <button mat-icon-button (click)="expireNotification(notification)">
                     <mat-icon>access_time</mat-icon>
@@ -25,9 +25,9 @@
     <hr>
     <mat-card-content>
         <mat-list>
-            <mat-list-item *ngFor="let notification of getNotificationsByType(NotificationType.EXPIRED)">
-                <p>{{notification.name}}</p>
-                <p>{{getNotificationCreationDay(notification)}}</p>
+            <mat-list-item *ngFor="let notification of getNotificationsByActiveness(false)">
+                <p>{{notification.description}}</p>
+                <p>{{notification.due | date }}</p>
                 <div style="display: flex; flex-grow: 1;"></div> <span>Поднови: </span>
                 <button mat-icon-button (click)="reopenNotification(notification)">
                     <mat-icon>autorenew</mat-icon>

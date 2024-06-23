@@ -19,15 +19,17 @@ export class CreateNotificationComponent {
     ) {
         this.myForm = this.fb.group({
             text: ['', Validators.required],
-            startDate: ['', Validators.required]
+            startDate: ['', Validators.required],
+            dueDate: ['', Validators.required],
         });
     }
 
     onSubmit() {
         let notification: Notification = {
-            name: this.myForm.get('text')!.value,
-            type: NotificationType.ACTIVE,
-            creationDate: this.myForm.get('startDate')!.value
+            description: this.myForm.get('text')!.value,
+            isActive: true,
+            creationDate: this.myForm.get('startDate')!.value,
+            due: this.myForm.get('dueDate')!.value
         }
         if (this.myForm.valid) {
             this.dialogRef.close(notification);

@@ -42,24 +42,33 @@ export class NotificationsComponent implements OnInit {
     this.currentUser = JSON.parse(sessionStorage.getItem('currentUser') || '');
   }
 
-  getNotificationsByType(notificationType: NotificationType): Notification[] {
+  // getNotificationsByType(notificationType: NotificationType): Notification[] {
+  //   return this.building.notifications.filter(
+  //     (notification: Notification) => notification.type === notificationType
+  //   );
+  // }
+
+  getNotificationsByActiveness(isActive: boolean): Notification[] {
     return this.building.notifications.filter(
-      (notification: Notification) => notification.type === notificationType
+      (notification: Notification) => notification.isActive === isActive
     );
   }
+
 
   protected readonly NotificationType = NotificationType;
 
   expireNotification(notification: Notification) {
-    notification.type = NotificationType.EXPIRED;
+    notification.isActive = false;
   }
 
   reopenNotification(notification: Notification) {
-    notification.type = NotificationType.ACTIVE;
+    notification.isActive = true;
   }
 
   getNotificationCreationDay(notification: Notification) {
-    let date = new Date(notification.creationDate);
+    console.log(notification);
+    
+    let date = notification.due;
     return date.getDay() + '.' + date.getMonth() + '.' + date.getFullYear();
   }
 
