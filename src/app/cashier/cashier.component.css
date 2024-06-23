@@ -19,7 +19,7 @@
 .mat-card, .mat-expansion-panel {
     margin-bottom: 20px;
     padding: 20px;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
 }
 
 .mat-panel-title {
@@ -76,4 +76,9 @@
 
 .mat-divider {
     margin: 10px 0;
+}
+
+.mat-card {
+    height: calc(100% - 110px);
+    background-color: ghostwhite;
 }
